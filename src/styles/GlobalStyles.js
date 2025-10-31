@@ -4,11 +4,27 @@ const GlobalStyles = createGlobalStyle`
     :root{
         &, &.light-mode{
             --bg-gradient: linear-gradient(180deg, #EBF2FC 0%, #EEF8F9 100%);
+
+            --color-text: #09153eff;
+            --color-neutral-0: #fbfdfeff;
+            --color-neutral-100: #edededff;
+            --color-neutral-200: #d6e2f5ff;
+            --color-neutral-300: #c7c7c7ff;       
         }
 
         &.dark-mode {
             --bg-gradient: linear-gradient(180deg, #040918 0%, #091540 100%);
+
+            --color-text: #ffffff;
+            --color-neutral-0: #212636ff;
+            --color-neutral-100: #09153eff;
+            --color-neutral-200: #2f364bff;
+            --color-neutral-300: #545969ff;     
         }
+
+        --color-red-400: #f25c54ff;
+        --color-red-500: #de473fff;
+        --color-red-700: #c7221aff;
 
     }
 
@@ -48,6 +64,28 @@ const GlobalStyles = createGlobalStyle`
 
     *:disabled {
         cursor: not-allowed;
+    }
+
+    button:has(svg){
+        line-height: 0;
+    }
+
+    a{
+        color: inherit;
+        text-decoration: none;
+    }
+
+    ul{
+        list-style: none;
+    }
+
+    h1,h2,h3,h4,h5,h6{
+        overflow-wrap: wrap;
+        hyphens: auto;
+    }
+
+    img{
+        max-width: 100%;
     }
 
 `;
