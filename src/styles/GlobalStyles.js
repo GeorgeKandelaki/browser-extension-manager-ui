@@ -7,8 +7,8 @@ const GlobalStyles = createGlobalStyle`
 
             --color-text: #09153eff;
             --color-neutral-0: #fbfdfeff;
-            --color-neutral-100: #edededff;
-            --color-neutral-200: #d6e2f5ff;
+            --color-neutral-100: #d6e2f5ff;
+            --color-neutral-200: #edededff;
             --color-neutral-300: #c7c7c7ff;       
         }
 
