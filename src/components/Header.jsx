@@ -9,7 +9,7 @@ const StyledHeader = styled.header`
 
     padding: 1rem 1.4rem;
     border-radius: 1.5rem;
-    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+    box-shadow: 1px 1px 0 1px rgba(0, 0, 0, 0.1);
     background-color: var(--color-neutral-0);
     line-height: 0;
 `;

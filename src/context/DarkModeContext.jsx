@@ -3,7 +3,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 const DarkModeContext = createContext();
 
 function DarkModeProvider({ children }) {
-    const [isDarkMode, setIsDarkMode] = useState(() => localStorage.getItem("isDarkMode") || false);
+    const [isDarkMode, setIsDarkMode] = useState(() => localStorage.getItem("isDarkMode") === "true");
 
     useEffect(
         function () {

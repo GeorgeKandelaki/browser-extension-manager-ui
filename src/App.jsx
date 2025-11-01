@@ -3,7 +3,7 @@ import { DarkModeProvider } from "./context/DarkModeContext";
 import styled from "styled-components";
 import Header from "./components/Header";
 import ExtensionList from "./components/ExtensionList";
-import ExtensionItem from "./components/ExtensionItem";
+import Filter from "./ui/Filter";
 
 // Logos
 import devlens from "./assets/images/logo-devlens.svg";
@@ -18,6 +18,7 @@ import palettepicker from "./assets/images/logo-palette-picker.svg";
 import linkchecker from "./assets/images/logo-link-checker.svg";
 import domsnapshot from "./assets/images/logo-dom-snapshot.svg";
 import consoleplus from "./assets/images/logo-console-plus.svg";
+import { useState } from "react";
 
 const extensions = [
     {
@@ -98,14 +99,41 @@ const StyledApp = styled.div`
     margin: 4.8rem 12.8rem;
 `;
 
+const ExtensionsHeader = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 6rem 0 4rem 0;
+`;
+
+const Heading = styled.h1`
+    color: var(--color-text-light);
+`;
+
 function App() {
+    const [filter, setFilter] = useState("all");
+
     return (
         <>
             <DarkModeProvider>
                 <GlobalStyles />
                 <StyledApp>
                     <Header />
-                    <ExtensionList extensions={extensions} />
+                    <div>
+                        <ExtensionsHeader>
+                            <Heading>Extensions List</Heading>
+                            <Filter
+                                options={[
+                                    { label: "All", value: "all" },
+                                    { label: "Active", value: "active" },
+                                    { label: "Inactive", value: "inactive" },
+                                ]}
+                                onChangeFilter={setFilter}
+                                currentFilter={filter}
+                            />
+                        </ExtensionsHeader>
+                        <ExtensionList extensions={extensions} />
+                    </div>
                 </StyledApp>
             </DarkModeProvider>
         </>

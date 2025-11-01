@@ -5,7 +5,11 @@ const GlobalStyles = createGlobalStyle`
         &, &.light-mode{
             --bg-gradient: linear-gradient(180deg, #EBF2FC 0%, #EEF8F9 100%);
 
-            --color-text: #09153eff;
+            --color-text-light: #09153eff;
+            --color-text-dark: #ffffff;
+            --color-text-neutral: #6d7077;
+
+
             --color-neutral-0: #fbfdfeff;
             --color-neutral-100: #d6e2f5ff;
             --color-neutral-200: #edededff;
@@ -15,7 +19,10 @@ const GlobalStyles = createGlobalStyle`
         &.dark-mode {
             --bg-gradient: linear-gradient(180deg, #040918 0%, #091540 100%);
 
-            --color-text: #ffffff;
+            --color-text-light: #ffffff;
+            --color-text-dark: #09153eff;
+            --color-text-neutral: #b0b4c0;
+
             --color-neutral-0: #212636ff;
             --color-neutral-100: #09153eff;
             --color-neutral-200: #2f364bff;

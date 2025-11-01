@@ -9,6 +9,10 @@ const StyledDarkModeToggle = styled.div`
     padding: 1.8rem 1.5rem;
     background-color: var(--color-neutral-200);
     border-radius: 1.2rem;
+
+    &:hover {
+        background-color: var(--color-neutral-300);
+    }
 `;
 
 function DarkModeToggle() {
