@@ -18,9 +18,9 @@ import palettepicker from "./assets/images/logo-palette-picker.svg";
 import linkchecker from "./assets/images/logo-link-checker.svg";
 import domsnapshot from "./assets/images/logo-dom-snapshot.svg";
 import consoleplus from "./assets/images/logo-console-plus.svg";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-const extensions = [
+const data = [
     {
         logo: devlens,
         name: "DevLens",
@@ -108,10 +108,42 @@ const ExtensionsHeader = styled.div`
 
 const Heading = styled.h1`
     color: var(--color-text-light);
+
+    @media screen and (max-width: 65em) {
+        & {
+            font-size: 3rem;
+        }
+    }
 `;
 
+function sortBy(arr, key, val) {
+    return arr.filter((el) => el[key] === val);
+}
+
 function App() {
+    const [extensions, setExtensions] = useState(data);
     const [filter, setFilter] = useState("all");
+
+    useEffect(
+        function () {
+            setExtensions(filter === "all" ? data : sortBy(data, "isActive", filter === "active"));
+        },
+        [filter]
+    );
+
+    function handleDelete(name) {
+        setExtensions((extensions) => extensions.filter((extension) => extension.name !== name));
+    }
+
+    function handleToggle(name) {
+        for (let i = 0; i < extensions.length; i++) {
+            const extension = extensions[i];
+
+            if (extension.name === name) extension.isActive = !extension.isActive;
+        }
+
+        return null;
+    }
 
     return (
         <>
@@ -132,7 +164,7 @@ function App() {
                                 currentFilter={filter}
                             />
                         </ExtensionsHeader>
-                        <ExtensionList extensions={extensions} />
+                        <ExtensionList extensions={extensions} onToggle={handleToggle} onDelete={handleDelete} />
                     </div>
                 </StyledApp>
             </DarkModeProvider>

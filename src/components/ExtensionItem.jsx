@@ -11,6 +11,7 @@ const Item = styled.li`
     display: flex;
     flex-direction: column;
     gap: 4.8rem;
+    flex-grow: 1;
 `;
 
 const ExtensionInfo = styled.div`
@@ -38,7 +39,7 @@ const ExtensionActions = styled.div`
     justify-content: space-between;
 `;
 
-function ExtensionItem({ extension }) {
+function ExtensionItem({ extension, onDelete, onToggle }) {
     return (
         <Item>
             <ExtensionInfo>
@@ -52,8 +53,8 @@ function ExtensionItem({ extension }) {
                 </div>
             </ExtensionInfo>
             <ExtensionActions>
-                <RemoveButton>Remove</RemoveButton>
-                <SwitchButton enabled={extension.isActive} />
+                <RemoveButton onClick={() => onDelete?.(extension.name)}>Remove</RemoveButton>
+                <SwitchButton enabled={extension.isActive} onClick={() => onToggle?.(extension.name)} />
             </ExtensionActions>
         </Item>
     );

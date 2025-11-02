@@ -15,6 +15,11 @@ const StyledSwitchButton = styled.button`
         transition: transform 0.3s;
         transform: translateX(${(props) => (props.enabled ? "101%" : "11%")});
     }
+
+    &:focus,
+    &:active {
+        outline: 2px solid var(--color-red-700);
+    }
 `;
 
 const Ball = styled.div`

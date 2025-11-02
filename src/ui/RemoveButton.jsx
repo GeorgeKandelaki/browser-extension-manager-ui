@@ -11,6 +11,13 @@ const RemoveButton = styled.button`
         background-color: var(--color-red-500);
         color: var(--color-text-dark);
     }
+
+    &:focus,
+    &:active {
+        outline: 2px solid var(--color-red-700);
+        background-color: var(--color-neutral-200);
+        color: inherit;
+    }
 `;
 
 export default RemoveButton;

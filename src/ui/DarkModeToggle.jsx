@@ -13,6 +13,11 @@ const StyledDarkModeToggle = styled.div`
     &:hover {
         background-color: var(--color-neutral-300);
     }
+
+    &:focus,
+    &:active {
+        outline: 2px solid var(--color-red-700);
+    }
 `;
 
 function DarkModeToggle() {

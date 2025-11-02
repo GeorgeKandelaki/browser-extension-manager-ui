@@ -18,6 +18,11 @@ const FilterButton = styled.button`
     &:hover {
         ${(props) => (props.active ? "opacity: 0.5;" : "background-color: var(--color-neutral-300);")};
     }
+
+    &:focus,
+    &:active {
+        outline: 2px solid var(--color-red-700);
+    }
 `;
 
 function Filter({ options, currentFilter, onChangeFilter }) {
